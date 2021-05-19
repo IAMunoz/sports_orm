@@ -2,8 +2,137 @@
 <html>
 	<head>
 		<title>Sports Leagues</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$(".ans").hide();
+					$(".current").click(function(){
+  						$(this).next("ul").toggle(250);
+					});
+			});
+		 </script>
 	</head>
 	<body>
+		<h1>Assignment 1</h1>
+			<ol>
+				<li class="current"><a href="#"><h3>Baseball Leagues:</h3></a></li>
+					<ul class="ans" >
+						{% for league in baseball %}
+							<li >{{league.name}}</li>
+						{% endfor %}
+					</ul>
+				<li class="current"><a href="#"><h3>Women Leagues:</h3></a></li>
+					<ul class="ans" >
+						{% for league in women %}
+							<li>{{league.name}}</li>
+						{% endfor %}
+					</ul>
+				<li class="current"><a href="#"><h3>Hockey Leagues:</h3></a></li>
+					<ul class="ans" >
+						{% for league in hockey %}
+							<li>{{league.name}}</li>
+						{% endfor %}
+					</ul>
+				<li class="current"><a href="#"><h3>Not Football Leagues:</h3></a></li>
+					<ul class="ans" >
+						{% for league in footballNot %}
+							<li>{{league.name}}</li>
+						{% endfor %}
+					</ul>
+				<li class="current"><a href="#"><h3>Conference Leagues:</h3></a></li>
+					<ul class="ans" >
+						{% for league in conference %}
+							<li>{{league.name}}</li>
+						{% endfor %}
+					</ul>
+				<li class="current"><a href="#"><h3>Atlantic Leagues:</h3></a></li>
+					<ul class="ans" >
+						{% for league in atlantic %}
+							<li>{{league.name}}</li>
+						{% endfor %}
+					</ul>
+				<li class="current"><a href="#"><h3>Teams from Dallas:</h3></a></li>
+					<ul class="ans" >
+						{% for team in dallas %}
+							<li>{{team.team_name}} ({{team.location}})</li>
+							{% empty %}
+							<p>No teams found.</p>
+						{% endfor %}
+					</ul>
+				<li class="current"><a href="#"><h3>Teams named Raptors:</h3></a></li>
+					<ul class="ans" >
+						{% for team in raptors %}
+							<li>{{team.team_name}} ({{team.location}})</li>
+							{% empty %}
+							<p>No teams found.</p>
+						{% endfor %}
+					</ul>
+				<li class="current"><a href="#"><h3>Team's location with "City":</h3></a></li>
+					<ul class="ans" >
+						{% for team in city %}
+							<li>{{team.team_name}} ({{team.location}})</li>
+							{% empty %}
+							<p>No teams found.</p>
+						{% endfor %}
+					</ul>
+				<li class="current"><a href="#"><h3>Team's name beginning with "T":</h3></a></li>
+					<ul class="ans" >
+						{% for team in tteams %}
+							<li>{{team.team_name}} ({{team.location}})</li>
+							{% empty %}
+							<p>No teams found.</p>
+						{% endfor %}
+					</ul>
+				<li class="current"><a href="#"><h3>Teams in location's order:</h3></a></li>
+					<ul class="ans" >
+						{% for team in order %}
+							<li>{{team.team_name}} ({{team.location}})</li>
+							{% empty %}
+							<p>No teams found.</p>
+						{% endfor %}
+					</ul>
+				<li class="current"><a href="#"><h3>Teams order Z to A:</h3></a></li>
+					<ul class="ans" >
+						{% for team in order2 %}
+							<li>{{team.team_name}} ({{team.location}})</li>
+							{% empty %}
+							<p>No teams found.</p>
+						{% endfor %}
+					</ul>
+				<li class="current"><a href="#"><h3>Players with "Edwards":</h3></a></li>
+					<ul class="ans" >
+						{% for p in edwards %}
+							<li><b>{{p.last_name}}</b>, {{p.first_name}}</li>
+							{% empty %}
+							<p>No players found.</p>
+						{% endfor %}
+					</ul>
+				<li class="current"><a href="#"><h3>Players with "Joshua":</h3></a></li>
+					<ul class="ans" >
+						{% for p in joshuas %}
+							<li>{{p.last_name}}, <b>{{p.first_name}}</b></li>
+							{% empty %}
+							<p>No players found.</p>
+						{% endfor %}
+					</ul>
+				<li class="current"><a href="#"><h3>Players with Edwards not "Joshua":</h3></a></li>
+					<ul class="ans" >
+						{% for p in edwards2 %}
+							<li>{{p.last_name}}, <u>{{p.first_name}}</u></li>
+							{% empty %}
+							<p>No players found.</p>
+						{% endfor %}
+					</ul>
+				<li class="current"><a href="#"><h3>Players with "Alexander" or "Wyatt":</h3></a></li>
+					<ul class="ans" >
+						{% for p in alexWyatt %}
+							<li>{{p.last_name}}, <b>{{p.first_name}}</b></li>
+							{% empty %}
+							<p>No players found.</p>
+						{% endfor %}
+					</ul>
+			</ol>
+		
 		<h1>Leagues</h1>
 		<ol>
 			{% for league in leagues %}

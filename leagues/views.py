@@ -3,6 +3,15 @@ from .models import League, Team, Player
 
 from . import team_maker
 
+def as2(request):
+	ascLg = League.objects.get(name__contains='Atlantic Conference')
+	penguin = Team.objects.get(team_name__contains='penguin')
+	context = {
+		"ascTeams": ascLg.teams.all(),
+		"penguins": penguin.curr_players.all(),
+	}
+	return render(request, "leagues/sport2.html", context)
+
 def index(request):
 	context = {
 		"leagues": League.objects.all(),
